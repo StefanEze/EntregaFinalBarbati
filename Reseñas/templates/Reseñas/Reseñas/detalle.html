@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+{% load static %}+
+
+{% block title %}Reseña {% endblock %}
+
+{% block contenidoQueCambia %}
+<h2 class="text-black mt-0 mb-0" style="background-color: black;">.</h2>
+<h2 class="text-black mt-0 mb-0" style="background-color: black;">.</h2>
+<br>
+<section class="page-section">
+    <div class="container px-4 px-lg-3">
+        <img class="img-thumbnail" src="{{review.imagen_portada.url}}">
+        
+        <h1 class="mt-0">{{review.titulo}}</h1>
+        <br>
+        
+        <h2 class="text-black-50 mb-5">{{review.subtitulo}}</h2>
+        
+        <br>
+        
+        <p>{{review.cuerpo|safe}}</p>
+        <br>
+        <p>Autor: {{review.autor.username}}</p>
+        <p>Creado: {{review.creado_at}}</p>
+        {% if user == review.autor %}
+        <a href="{% url 'Delete' review.id %}?next=/Reseñas/detalle/{{review.id}}" class="btn btn-danger btn-xl">Borrar</a>
+        <a href="{% url 'Edit' review.id %}?next=/Reseñas/detalle/{{review.id}}" class="btn btn-primary btn-xl">Editar</a>
+        {% endif %}
+        <a href="{% url 'List' %}" class="btn btn-outline-secondary btn-xl">Regresar</a>
+    </div>
+</section>
+
+{% endblock %}

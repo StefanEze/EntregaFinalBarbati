@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Crear una reseña {% endblock %}
+{% block contenidoQueCambia %}
+<h2 class="text-black mt-0 mb-0" style="background-color: black;">.</h2>
+<h2 class="text-black mt-0 mb-0" style="background-color: black;">.</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container px-4 px-lg-5">
+            <br>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Realiza una reseña</h2>
+                        <hr class="divider" />
+                        <p class="text-muted mb-5">Listo para hacer una publicación? Completa estos datos!</p>
+                {% for field in form%}
+                <br>
+                <label class="form-label">{{field.label}}</label>
+                {{form.media}}
+                <br>
+                {{field}}
+                <br>
+                {% endfor %}
+                <br>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                        <i class="bi-upload fs-2 mb-3 text-muted"></i>
+                    </div>
+                </div>
+                    {% if update == 1%}
+                    <button type="submit" class="btn btn-primary" href="{{request.GET.next}}">Editar</button>
+                    {% else %}
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock %}

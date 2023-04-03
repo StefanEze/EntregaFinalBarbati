@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block title %}Lista de Reseñas {% endblock %}
+
+{% block contenidoQueCambia %}
+<h2 class="text-black mt-0 mb-0" style="background-color: black;">.</h2>
+<h2 class="text-black mt-0 mb-0" style="background-color: black;">.</h2>
+
+
+<div class="container">
+    <div class="col-lg-8 align-self-end">
+        <br>
+        <h1 class="text-black font-weight-bold">Reseñas</h1>
+        <hr class="dropdown-menu-dark" />
+        <a href="{% url 'Reviews' %}" class="btn btn-outline-secondary btn-xl">
+            Haz Tu Reseña Aqui
+        </a>
+    </div>
+    <br>
+    <div class="row row-cols-auto">
+    {% for review in reviews %}
+    <div class="col-md">
+        <hr class="dropdown-divider" />
+        <div class="card" style="width: 23rem;">
+            <img src="{{review.imagen_portada.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{review.titulo}}</h5>
+                <p class="card-text">{{review.subtitulo}}</p>
+                <a href="{% url 'Detail' review.id %}" class="btn btn-success btn-block">Ver</a>
+                {% if user == review.autor %}
+                <a href="{% url 'Edit' review.id %}?next=/Reseñas/list" class="btn btn-primary btn-block">Editar</a>
+                <a href="{% url 'Delete' review.id %}?next=/Reseñas/list" class="btn btn-danger btn-block">Borrar</a>
+                {% endif %}
+            </div>
+        </div>
+        <hr class="dropdown-divider" />
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
