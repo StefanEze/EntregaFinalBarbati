@@ -12,7 +12,6 @@ class ReviewForm(ModelForm):
     
     def __init__(self,*args,**kwargs):
         super(ReviewForm,self).__init__(*args,**kwargs)
-
         self.fields['titulo'].widget.attrs.update({'class':'form-control'})
         self.fields['subtitulo'].widget.attrs.update({'class':'form-control'})
         self.fields['cuerpo'].widget.attrs.update({'class':'form-control'})

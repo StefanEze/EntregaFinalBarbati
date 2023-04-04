@@ -16,6 +16,7 @@ def reviews(request):
             review = form.save(commit=False)
             review.autor = request.user
             form.save()
+            form.autor = request.user
             return redirect('List')
     else:
         form = ReviewForm()
@@ -43,6 +44,7 @@ def updateReview(request, pk):
 
     if request.method == "POST":
         form=ReviewForm(request.POST, request.FILES, instance=review)
+        review.autor = request.user
         form.save()
         return redirect('List')
 

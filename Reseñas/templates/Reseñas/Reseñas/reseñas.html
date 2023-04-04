@@ -14,21 +14,46 @@
                     <h2 class="mt-0">Realiza una reseña</h2>
                         <hr class="divider" />
                         <p class="text-muted mb-5">Listo para hacer una publicación? Completa estos datos!</p>
-                {% for field in form%}
                 <br>
-                <label class="form-label">{{field.label}}</label>
+                <label class="form-label">{{form.titulo.label}}</label>
                 {{form.media}}
                 <br>
-                {{field}}
+                {{form.titulo}}
                 <br>
-                {% endfor %}
+                <br>
+                <br>
+                <label class="form-label">{{form.subtitulo.label}}</label>
+                {{form.media}}
+                <br>
+                {{form.subtitulo}}
+                <br>
+                <br>
+                <br>
+                <label class="form-label">{{form.cuerpo.label}}</label>
+                {{form.media}}
+                <br>
+                {{form.cuerpo}}
+                <br>
+                <br>
+                <br>
+                <label class="form-label">{{form.imagen_portada.label}}</label>
+                {{form.media}}
+                <br>
+                {{form.imagen_portada}}
+                <br>
+                <br>
+                <br>
+                <label class="form-label">{{form.autor.label}}: {{user.username}}</label>
+                {{form.media}}
+                <br>
+                {{form.autor}}
                 <br>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-4 text-center mb-5 mb-lg-0">
                         <i class="bi-upload fs-2 mb-3 text-muted"></i>
                     </div>
                 </div>
-                    {% if update == 1%}
+                    {% if update == 1 %}
                     <button type="submit" class="btn btn-primary" href="{{request.GET.next}}">Editar</button>
                     {% else %}
                     <button type="submit" class="btn btn-primary">Crear</button>
