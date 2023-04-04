@@ -23,3 +23,6 @@ Es una Web semejante a un Blog orientada a las reseñas a diferentes restaurante
 3. Ejecutar `python manage.py makemigrations` 
 4. Ejecutar `python manage.py migrate`
 5. Ejecutar `python manage.py runsever`
+
+## Link del video demostrativo
+https://youtu.be/MNkNNTk_uiM
