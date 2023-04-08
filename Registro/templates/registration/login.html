@@ -10,7 +10,7 @@
 
 <form method="post">
 {% csrf_token %} {{form | crispy}}
-<p>No tienes una cuenta? Registrate <a href="/Reseñas/sign-up">Aqui</a></p>
+<p>No tienes una cuenta? Registrate <a href="../Registro/sign_up">Aqui</a></p>
 <button type="submit" class="btn btn-success">Login</button>
 </form>
 {% endblock %}

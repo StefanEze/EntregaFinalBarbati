@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Reseñas.apps.ReseñasConfig',
+    'Registro.apps.RegistroConfig',
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',

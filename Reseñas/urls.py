@@ -10,5 +10,4 @@ urlpatterns = [
     path('detalle/<str:pk>',views.detalle,name="Detail"),
     path('update-review/<str:pk>',views.updateReview, name="Edit"),
     path('delete-review/<str:pk>/',views.deleteReview,name="Delete"),
-    path('sign-up', views.sign_up, name="sign_up"),
 ]
